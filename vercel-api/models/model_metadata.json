@@ -1,0 +1,206 @@
+{
+  "model_name": "Stacking Ensemble (CART + Extra Trees + Bagging)",
+  "algorithm_list_refs": {
+    "CART Decision Tree": "#7 - CART",
+    "Extra Trees": "#21 - Extra Trees (Extremely Randomized Trees)",
+    "Bagging": "#19 - Bagging (Bootstrap Aggregating)",
+    "Ensemble Method": "#23 - Stacking",
+    "Meta Learner": "#2 - Logistic Regression (L2)"
+  },
+  "regularization": {
+    "Extra Trees": "n_estimators=150, averaging over trees = implicit regularization",
+    "Bagging": "max_samples=0.9, max_features=0.9 (subsampling variance reduction)",
+    "Meta LR": "C=2.0 (L2 regularization on meta-learner)"
+  },
+  "test_accuracy": 0.9082,
+  "test_f1_weighted": 0.9091,
+  "test_f1_macro": 0.8825,
+  "test_roc_auc": 0.9822,
+  "test_precision_weighted": 0.9114,
+  "test_recall_weighted": 0.9082,
+  "features": [
+    "Time",
+    "Day_of_week",
+    "Age_band_of_driver",
+    "Sex_of_driver",
+    "Educational_level",
+    "Vehicle_driver_relation",
+    "Driving_experience",
+    "Lanes_or_Medians",
+    "Types_of_Junction",
+    "Road_surface_type",
+    "Road_surface_conditions",
+    "Light_conditions",
+    "Weather_conditions",
+    "Type_of_collision",
+    "Number_of_vehicles_involved",
+    "Number_of_casualties",
+    "Vehicle_type",
+    "Cause_of_accident",
+    "Pedestrian_movement",
+    "Vehicle_movement",
+    "Road_allignment",
+    "Area_accident_occured",
+    "Sub_district"
+  ],
+  "classes": [
+    "Slight Injury",
+    "Serious Injury",
+    "Fatal injury"
+  ],
+  "label_map": {
+    "Slight Injury": 0,
+    "Serious Injury": 1,
+    "Fatal injury": 2
+  },
+  "cat_cols": [
+    "Time",
+    "Day_of_week",
+    "Age_band_of_driver",
+    "Sex_of_driver",
+    "Educational_level",
+    "Vehicle_driver_relation",
+    "Driving_experience",
+    "Lanes_or_Medians",
+    "Types_of_Junction",
+    "Road_surface_type",
+    "Road_surface_conditions",
+    "Light_conditions",
+    "Weather_conditions",
+    "Type_of_collision",
+    "Vehicle_type",
+    "Cause_of_accident",
+    "Pedestrian_movement",
+    "Vehicle_movement",
+    "Road_allignment",
+    "Area_accident_occured",
+    "Sub_district"
+  ],
+  "num_cols": [
+    "Number_of_vehicles_involved",
+    "Number_of_casualties"
+  ],
+  "cat_unique": {
+    "Time": [
+      "Afternoon (14-18)",
+      "Night (22-6)"
+    ],
+    "Day_of_week": [
+      "Friday",
+      "Monday",
+      "Saturday",
+      "Sunday",
+      "Thursday",
+      "Tuesday",
+      "Wednesday"
+    ],
+    "Age_band_of_driver": [
+      "18-30",
+      "31-50"
+    ],
+    "Sex_of_driver": [
+      "Female",
+      "Male"
+    ],
+    "Educational_level": [
+      "Above high school",
+      "Elementary school",
+      "High school",
+      "Unknown"
+    ],
+    "Vehicle_driver_relation": [
+      "Employee",
+      "Other",
+      "Owner"
+    ],
+    "Driving_experience": [
+      "2-5yr",
+      "Below 1yr",
+      "No Licence"
+    ],
+    "Lanes_or_Medians": [
+      "Double carriageway (median)",
+      "One way",
+      "Two-way (divided with broken lines road marking)",
+      "Undivided Two way"
+    ],
+    "Types_of_Junction": [
+      "Crossing",
+      "No junction",
+      "T Shape",
+      "Unknown",
+      "Y Shape"
+    ],
+    "Road_surface_type": [
+      "Asphalt roads",
+      "Asphalt roads with some distress",
+      "Earth roads",
+      "Gravel roads"
+    ],
+    "Road_surface_conditions": [
+      "Dry",
+      "Wet or damp"
+    ],
+    "Light_conditions": [
+      "Darkness - no lighting",
+      "Daylight"
+    ],
+    "Weather_conditions": [
+      "Cloudy",
+      "Normal",
+      "Raining",
+      "Raining and Windy"
+    ],
+    "Type_of_collision": [
+      "Rollover",
+      "Vehicle with vehicle collision"
+    ],
+    "Vehicle_type": [
+      "Automobile",
+      "Bajaj",
+      "Long lorry",
+      "Lorry (41-100Q)",
+      "Motorcycle",
+      "Public (12 seats)",
+      "Taxi"
+    ],
+    "Cause_of_accident": [
+      "Drunk driving",
+      "Other",
+      "Overspeed"
+    ],
+    "Pedestrian_movement": [
+      "Crossing from driver near side",
+      "Crossing from nearside",
+      "Not a Pedestrian",
+      "Unknown or other"
+    ],
+    "Vehicle_movement": [
+      "Going straight",
+      "Moving Backward",
+      "Stopping",
+      "Turnover",
+      "U-Turn"
+    ],
+    "Road_allignment": [
+      "Steep grade downward with mountainous terrain",
+      "Tangent road with flat terrain"
+    ],
+    "Area_accident_occured": [
+      "Outside Addis Ababa",
+      "Residential areas"
+    ],
+    "Sub_district": [
+      "Addis Ketema",
+      "Akaki Kaliti",
+      "Arada",
+      "Bole",
+      "Gulele",
+      "Kirkos",
+      "Kolfe Keranio",
+      "Lideta",
+      "Nifas Silk-Lafto",
+      "Yeka"
+    ]
+  }
+}

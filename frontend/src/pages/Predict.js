@@ -184,11 +184,17 @@ export default function Predict() {
     setLoading(true);
     setError(null);
     try {
-      const { data } = await axios.post('https://fransimengesha-rta-api.hf.space/predict', form);
+      const payload = { ...form, Type_of_vehicle: form.Vehicle_type || 'Unknown' };
+      const { data } = await axios.post('https://fransimengesha-rta-api.hf.space/predict', payload);
       setResult(data);
       setTimeout(() => resultRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
     } catch (e) {
-      setError(e.response?.data?.detail || 'Prediction failed. Make sure the backend is running.');
+      const errDetail = e.response?.data?.detail;
+      if (Array.isArray(errDetail)) {
+        setError("Validation error for fields: " + errDetail.map(d => d.loc[d.loc.length - 1]).join(", "));
+      } else {
+        setError(errDetail || 'Prediction failed. Make sure the backend is running.');
+      }
     } finally {
       setLoading(false);
     }
