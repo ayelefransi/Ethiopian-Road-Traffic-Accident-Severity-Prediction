@@ -1,0 +1,152 @@
+:root {
+  /* Midnight Blue & Neon Cyan Palette */
+  --bg-primary:    #030712;
+  --bg-secondary:  #0B1120;
+  --bg-card:       rgba(15, 23, 42, 0.4); /* Glassmorphic base */
+  --bg-card-hover: rgba(30, 41, 59, 0.6);
+  --border:        rgba(148, 163, 184, 0.1);
+  --border-glow:   rgba(34, 211, 238, 0.3);
+
+  --accent-cyan:   #22d3ee;
+  --accent-blue:   #3b82f6;
+  --accent-violet: #8b5cf6;
+  --accent-amber:  #f59e0b;
+
+  --slight:        #10b981;
+  --serious:       #f59e0b;
+  --fatal:         #f43f5e;
+
+  --text-primary:  #f8fafc;
+  --text-secondary:#94a3b8;
+  --text-muted:    #475569;
+
+  /* Modern Typography */
+  --font-display:  'Outfit', sans-serif;
+  --font-body:     'Inter', sans-serif;
+  --font-mono:     'JetBrains Mono', monospace;
+
+  --radius-sm:  8px;
+  --radius-md:  16px;
+  --radius-lg:  24px;
+  --radius-xl:  32px;
+
+  --shadow-sm:  0 4px 12px rgba(0,0,0,0.3);
+  --shadow-md:  0 10px 40px rgba(0,0,0,0.5);
+  --shadow-glow: 0 0 30px rgba(34,211,238,0.15), inset 0 1px 0 rgba(255,255,255,0.05);
+  
+  --glass-blur: blur(20px);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.01em;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: rgba(148, 163, 184, 0.2); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(34, 211, 238, 0.4); }
+
+/* Glass Panel Utility */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Grid noise overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(34,211,238,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34,211,238,0.015) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+::selection { background: rgba(34,211,238,0.25); color: #fff; }
+
+/* Aurora Animated Gradient Orbs */
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+  animation: drift 25s ease-in-out infinite alternate;
+}
+.orb-1 {
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(34,211,238,0.08) 0%, transparent 60%);
+  top: -250px; left: -250px;
+  animation-delay: 0s;
+}
+.orb-2 {
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(139,92,246,0.07) 0%, transparent 60%);
+  bottom: -150px; right: -150px;
+  animation-delay: -5s;
+}
+.orb-3 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(59,130,246,0.06) 0%, transparent 60%);
+  top: 40%; left: 30%;
+  animation-delay: -10s;
+}
+
+@keyframes drift {
+  0%   { transform: translate(0,0) scale(1); }
+  50%  { transform: translate(50px,-40px) scale(1.1); }
+  100% { transform: translate(-30px,60px) scale(0.9); }
+}
+
+@keyframes pulse-ring {
+  0%   { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes blink {
+  0%,100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes glow-pulse {
+  0%,100% { box-shadow: 0 0 20px rgba(34,211,238,0.2); }
+  50%     { box-shadow: 0 0 40px rgba(34,211,238,0.4), 0 0 80px rgba(34,211,238,0.15); }
+}

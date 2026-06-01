@@ -1,0 +1,24 @@
+{
+  "name": "ethiopia-rta-predictor",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-scripts": "5.0.1",
+    "recharts": "^2.12.7",
+    "framer-motion": "^11.3.19",
+    "axios": "^1.7.7",
+    "react-router-dom": "^6.26.2",
+    "lucide-react": "^0.447.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "proxy": "http://localhost:8000",
+  "browserslist": {
+    "production": [">0.2%", "not dead", "not op_mini all"],
+    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
+  }
+}
